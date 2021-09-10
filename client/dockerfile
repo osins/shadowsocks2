@@ -1,0 +1,4 @@
+FROM golang:1.16-alpine3.14
+COPY ./pkg /pkg
+WORKDIR /pkg
+RUN tar zxvf shadowsocks2-linux.tgz && mv shadowsocks2-linux /usr/bin/shadowsocks2 && chmod 777 /usr/bin/shadowsocks2

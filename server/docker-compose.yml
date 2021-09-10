@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  shadowsocks-server:
+    container_name: shadowsocks-server
+    image: shadowsocks-server
+    build:
+      context: ./
+      dockerfile: dockerfile
+    ports:
+      - "8488:8488/tcp"
+      - "8488:8488/udp"
+    command: ["shadowsocks2", "-s", "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@0.0.0.0:8488", "-udp"]
+    restart: always
+    networks: 
+      - net
+
+networks:
+  net:
+    ipam:
+      driver: default

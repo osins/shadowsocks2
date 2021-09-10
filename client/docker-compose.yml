@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  shadowsocks-client:
+    container_name: shadowsocks-client
+    image: shadowsocks-client
+    build:
+      context: ./
+      dockerfile: dockerfile
+    command: ["shadowsocks2", "-c", "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@${SERVER}:8488", "-socks", "0.0.0.0:1080"]
+    restart: always
+    networks: 
+      - net
+
+  privoxy:
+    image: vimagick/privoxy
+    ports:
+      - "1080:8118"
+    volumes:
+      - ./conf/privoxy/config:/etc/privoxy/config
+      - ./conf/privoxy/user.action:/etc/privoxy/user.action
+      - ./conf/privoxy/user.filter:/etc/privoxy/user.filter
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    networks: 
+      - net
+
+networks:
+  net:
+    ipam:
+      driver: default
