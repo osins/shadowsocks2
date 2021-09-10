@@ -23,3 +23,16 @@ cd server
 cd client
 ./restart.sh
 ```
+
+## setting your os
+
+proxy address: 127.0.0.1:1080
+
+or on linux
+
+```
+export http_proxy="127.0.0.1:1080"
+export https_proxy="127.0.0.1:1080"
+export ftp_proxy="127.0.0.1:1080"
+```
+
