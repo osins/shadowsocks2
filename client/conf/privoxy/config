@@ -1447,7 +1447,12 @@ enable-proxy-authentication-forwarding 0
 #
 #        forward-socks5t   /               127.0.0.1:9050 .
 #
-forward-socks5t   /               shadowsocks-client:1080 .
+
+# forward             192.168.*.*/        .
+# forward             10.*.*.*/           .  
+
+forward-socks5t     /                   shadowsocks-client:1080 .
+
 #
 #
 #      Note that if you got Tor through one of the bundles, you may
