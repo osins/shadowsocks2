@@ -14,10 +14,12 @@ default                 = +forward-override{forward-socks5 shadowsocks-client:10
 127.0.0.1
 158.247.226.121
 localhost
+.live.com
 .goproxy.cn
 .mock-api.com
 .humanrisk.cn
 .xianganquan.com
+.staticfile.org
 .qiyukf.com
 .youdao.com
 .127.net
@@ -62,6 +64,19 @@ localhost
 .shimo.im
 .juejin.cn
 .qiniu.com
+.infoq.cn
+.mi.com
+.flutterchina.club
+.iodraw.com
+.creately.com
+.processon.com
+.docschina.org
+.bootcss.com
+.xapi.com
+.google-analytics.com
+.createjs.cc
+.51cto.com
+.iconfont.cn
 
 {proxy}
 
@@ -84,3 +99,4 @@ localhost
 .hubspot.net
 .proofpoint.com
 .linkedin.com
+.mono-project.com
