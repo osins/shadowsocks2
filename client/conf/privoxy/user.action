@@ -9,6 +9,10 @@ default                 = +forward-override{forward-socks5 shadowsocks-client:10
 /
 
 {direct} 
+.cn
+.sbs.edu.cn
+.linktour.vip
+.linktour.com
 192.168.*.*
 10.0.*.*
 127.0.0.1
