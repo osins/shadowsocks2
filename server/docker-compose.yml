@@ -6,6 +6,7 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
+    env_file: .env
     ports:
       - "8488:8488/tcp"
       - "8488:8488/udp"
