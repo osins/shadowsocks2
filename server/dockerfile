@@ -1,4 +1,11 @@
 FROM golang:1.16-alpine3.14
 COPY ./pkg /pkg
-WORKDIR /pkg
-RUN tar zxvf shadowsocks2-linux.tgz && mv shadowsocks2-linux /usr/bin/shadowsocks2 && chmod 777 /usr/bin/shadowsocks2
+RUN cd /pkg && \
+    tar zxvf shadowsocks2-linux.tgz && \
+    mv shadowsocks2-linux /usr/bin/shadowsocks2 && \
+    chmod 777 /usr/bin/shadowsocks2 && \
+    rm -rf /pkg
+
+WORKDIR /
+    
+CMD ["shadowsocks2", "-s", "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@0.0.0.0:8488", "-udp"]
