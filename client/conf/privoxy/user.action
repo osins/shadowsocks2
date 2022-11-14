@@ -1,9 +1,9 @@
 {{alias}}
 
+default                 = +forward-override{forward .}
 direct                  = +forward-override{forward .}
 proxy                   = +forward-override{forward shadowsocks-client:1080}
 over_wall_proxy         = +forward-override{forward-socks5 shadowsocks-client:1080 .}
-default                 = +forward-override{forward-socks5 shadowsocks-client:1080 .}
 
 {default}
 /
@@ -13,6 +13,7 @@ default                 = +forward-override{forward-socks5 shadowsocks-client:10
 .sbs.edu.cn
 .linktour.vip
 .linktour.com
+39.105.181.186
 192.168.*.*
 10.0.*.*
 127.0.0.1
