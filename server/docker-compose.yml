@@ -8,9 +8,9 @@ services:
       dockerfile: dockerfile
     env_file: .env
     ports:
-      - "8488:8488/tcp"
-      - "8488:8488/udp"
-    command: ["shadowsocks2", "-s", "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@0.0.0.0:8488", "-udp"]
+      - "${PORT}:${PORT}/tcp"
+      - "${PORT}:${PORT}/udp"
+    command: ["shadowsocks2", "-s", "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@0.0.0.0:${PORT}", "-udp"]
     restart: always
     networks: 
       - net

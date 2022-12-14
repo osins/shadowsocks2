@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 
 services:
   haproxy:
@@ -8,8 +8,6 @@ services:
     dns:
       - 8.8.8.8
       - 8.8.4.4
-      - 223.5.5.5
-      - 223.6.6.6
     networks: 
       - net
     volumes:
@@ -21,13 +19,11 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
-    command: ["shadowsocks2", "-c", "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@${SERVER}:8488", "-socks", "0.0.0.0:1080"]
+    command: ["shadowsocks2", "-c", "ss://AEAD_CHACHA20_POLY1305:${PASSWORD}@${SERVER}:${PORT}", "-socks", "0.0.0.0:1080"]
     restart: always
     dns:
       - 8.8.8.8
       - 8.8.4.4
-      - 223.5.5.5
-      - 223.6.6.6
     networks: 
       - net
 
@@ -36,8 +32,6 @@ services:
     dns:
       - 8.8.8.8
       - 8.8.4.4
-      - 223.5.5.5
-      - 223.6.6.6
     ports:
       - "1080:8118"
     volumes:
